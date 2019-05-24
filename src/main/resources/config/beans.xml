@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="stubOpinionRepository" class="io.desz.opinions.service.StubOpinionRepository"/>
+
+    <bean id="pastDateValidator" class="io.desz.opinions.validation.PastDateValidator"/>
+    <bean id="opinionValidator" class="io.desz.opinions.validation.OpinionValidator">
+        <constructor-arg ref="pastDateValidator"/>
+    </bean>
+    <bean id="opinionService" class="io.desz.opinions.service.OpinionService">
+        <constructor-arg ref="opinionValidator"/>
+        <constructor-arg ref="stubOpinionRepository"/>
+    </bean>
+</beans>
