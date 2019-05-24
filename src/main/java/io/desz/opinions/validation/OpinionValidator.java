@@ -1,6 +1,7 @@
 package io.desz.opinions.validation;
 
 
+import com.google.inject.Inject;
 import io.desz.opinions.annotation.Past;
 import io.desz.opinions.model.Opinion;
 
@@ -14,6 +15,7 @@ public class OpinionValidator implements Validator<Opinion> {
 
     private PastDateValidator pastDateValidator;
 
+    @Inject
     public OpinionValidator(PastDateValidator pastDateValidator) {
         this.pastDateValidator = pastDateValidator;
     }

@@ -1,5 +1,6 @@
 package io.desz.opinions.service;
 
+import com.google.inject.Inject;
 import io.desz.opinions.model.Opinion;
 import io.desz.opinions.validation.Constraint;
 import io.desz.opinions.validation.OpinionValidator;
@@ -12,6 +13,7 @@ public class OpinionService {
     private OpinionValidator validator;
     private OpinionRepository repo;
 
+    @Inject
     public OpinionService(OpinionValidator validator, OpinionRepository repo) {
         this.validator = validator;
         this.repo = repo;
